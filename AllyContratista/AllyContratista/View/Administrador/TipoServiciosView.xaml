@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:AllyContratista.Helper"
+             x:Class="AllyContratista.View.Administrador.TipoServiciosView"
+             x:Name="TipoServiciosPage"
+             IconImageSource="tag.png"
+             IsBusy="{Binding IsBusy}"
+             Title="Tipo de Servicios">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ColorConverter x:Key="ColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    BackgroundColor="{StaticResource color1}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="0">
+                    <SearchBar 
+                        CancelButtonColor="White"
+                        Placeholder="Buscar"
+                        PlaceholderColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="#fff"
+                        x:Name="txtSearchBar"
+                        SearchCommand="{Binding BuscarCommand}"
+                        SearchCommandParameter="{Binding Text, Source={x:Reference txtSearchBar}}"/>
+                </StackLayout>
+                <StackLayout
+                    BackgroundColor="#f1f1f1"
+                    Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <ScrollView
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                        <RefreshView
+                            Command="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsBusy}">
+                            <CollectionView
+                                ItemsSource="{Binding ListViewSource}"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Frame
+                                                CornerRadius="5"
+                                                HasShadow="True"
+                                                Padding="0"
+                                                Margin="5,5,5,0">
+                                                <SwipeView>
+                                                    <SwipeView.LeftItems>
+                                                        <SwipeItems Mode="Reveal">
+                                                            <SwipeItem
+                                                                Command="{Binding BindingContext.ActivarTipoServicioCommand, Source={x:Reference TipoServiciosPage}}" 
+                                                                CommandParameter="{Binding .}"
+                                                                Text="Activar"
+                                                                BackgroundColor="#00C684"/>
+                                                        </SwipeItems>
+                                                    </SwipeView.LeftItems>
+                                                    <SwipeView.RightItems>
+                                                        <SwipeItems Mode="Reveal">
+                                                            <SwipeItem
+                                                                IsVisible="{Binding Estado}"
+                                                                Command="{Binding BindingContext.EliminarTipoServicioCommand, Source={x:Reference TipoServiciosPage}}" 
+                                                                CommandParameter="{Binding .}"
+                                                                Text="Deactivar"
+                                                                BackgroundColor="{StaticResource color5}"/>
+                                                        </SwipeItems>
+                                                    </SwipeView.RightItems>
+                                                    <Grid BackgroundColor="#fff">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="35"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer 
+                                                        Command="{Binding BindingContext.VerTipoServicioCommand, Source={x:Reference TipoServiciosPage}}" 
+                                                        CommandParameter="{Binding .}"/>
+                                                        </Grid.GestureRecognizers>
+                                                        <Frame
+                                                            Grid.Column="0"
+                                                            Padding="10"
+                                                            Margin="0"
+                                                            BackgroundColor="{Binding .,Converter={StaticResource ColorConverter},ConverterParameter={x:Reference Name=TipoServiciosPage}}">
+                                                            <Label
+                                                                TextColor="#fff"
+                                                                Text="&#xf02b;"
+                                                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                                                VerticalOptions="CenterAndExpand"
+                                                                HorizontalOptions="CenterAndExpand"/>
+                                                        </Frame>
+                                                        <StackLayout 
+                                                            Grid.Column="1"
+                                                            Padding="10"
+                                                            Margin="0">
+                                                            <Label 
+                                                                TextColor="{StaticResource color6}"
+                                                                FontSize="18"
+                                                                Text="{Binding TipoServicio}"/>
+                                                            <Label Text="{Binding Descripcion}" />
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </SwipeView>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </RefreshView>
+                    </ScrollView>
+                </StackLayout>
+                <Button
+                    TextColor="#fff"
+                    BackgroundColor="{StaticResource color6}"
+                    FontAttributes="Bold"
+                    FontSize="25"
+                    Margin="5"  
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    Grid.Row="1"
+                    Command="{Binding VerTipoServicioCommand}"
+                    CornerRadius="30"
+                    Text="+"
+                    HeightRequest="55"
+                    WidthRequest="55"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

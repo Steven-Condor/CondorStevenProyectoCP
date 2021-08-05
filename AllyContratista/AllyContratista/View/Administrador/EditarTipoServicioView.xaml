@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyContratista.View.Administrador.EditarTipoServicioView"
+             Title="Formulario Tipo de Servicio"
+             IsBusy="{Binding IsBusy}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame
+                HasShadow="False">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Command="{Binding AgregarFotoCommand}"
+                        Margin="10"
+                        WidthRequest="55"
+                        HeightRequest="55"
+                        CornerRadius="30"
+                        BackgroundColor="{StaticResource color3}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Grid.Row="0"
+                        Text="&#xf03e;"
+                        FontSize="25"
+                        TextColor="#fff"
+                        FontFamily="{StaticResource FontAwesomeSolid}"/>
+                    <Frame
+                        Margin="0,0,10,0"
+                        Padding="0"
+                        HeightRequest="130"
+                        Grid.Column="1"
+                        CornerRadius="15">
+                        <Image
+                            Aspect="AspectFit"
+                            Source="{Binding FuenteImagen}">
+                        </Image>
+                    </Frame>
+                </Grid>
+            </Frame>
+            <StackLayout>
+                <Frame
+                    HasShadow="False"
+                    CornerRadius="20"
+                    Margin="10"
+                    Padding="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label 
+                            FontSize="17"
+                            Grid.Column="0"
+                            TextColor="Gray"
+                            Text="&#xf02b;"
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+                        <Entry
+                            Grid.Column="1"
+                            Placeholder="Tipo de Servicio"
+                            VerticalOptions="FillAndExpand"
+                            Text="{Binding TipoServicio}"
+                            Margin="-10,0,0,0"
+                            HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                <Frame
+                    HasShadow="False"
+                    CornerRadius="20"
+                    Margin="10,0,10,10"
+                    Padding="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label 
+                            FontSize="17"
+                            Grid.Column="0"
+                            TextColor="Gray"
+                            Text="&#xf035;"
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+                        <Entry
+                            Grid.Column="1"
+                            Placeholder="Tipo de Servicio"
+                            VerticalOptions="FillAndExpand"
+                            Text="{Binding Descripcion}"
+                            Margin="-10,0,0,0"
+                            HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Button 
+                CornerRadius="25"
+                FontSize="18"
+                IsVisible="{Binding NuevoVisible}"
+                Text="Ingresar"
+                Command="{Binding NuevoTipoServicioCommand}"
+                Margin="10"
+                TextColor="#fff"
+                BackgroundColor="{StaticResource color2}"
+                VerticalOptions="EndAndExpand"/>
+            <Button 
+                CornerRadius="25"
+                FontSize="18"
+                IsVisible="{Binding ActualizarVisible}"
+                Text="Actualizar"
+                Command="{Binding ActualizarTipoServicioCommand}"
+                Margin="10"
+                TextColor="#fff"
+                BackgroundColor="{StaticResource color4}"
+                VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

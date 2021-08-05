@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyContratista.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="color1">#F2CB05</Color>
+            <Color x:Key="color2">#F2B705</Color>
+            <Color x:Key="color3">#F29F05</Color>
+            <Color x:Key="color4">#F27405</Color>
+            <Color x:Key="color5">#F25D27</Color>
+            <Color x:Key="color6">#0455BF</Color>
+
+                <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegular">
+                <On Platform="Android" Value="FontAwesome5Free-Regular-400.otf#Regular"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeBrands">
+                <On Platform="Android" Value="FontAwesome5Brands-Regular-400.otf#Brands"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid">
+                <On Platform="Android" Value="FontAwesome5Free-Solid-900.otf#Solid"/>
+            </OnPlatform>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#f2cb05"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

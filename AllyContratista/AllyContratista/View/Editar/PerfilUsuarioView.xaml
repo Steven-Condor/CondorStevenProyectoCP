@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyContratista.View.Editar.PerfilUsuarioView"
+             Title="Perfil de Usuario"
+             IsBusy="{Binding IsBusy}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Padding="0"
+                    Margin="10,5,10,10"
+                    Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button 
+                            Grid.Column="0"
+                            Command="{Binding SeleccionarFotoCommand}"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource color1}"
+                            CornerRadius="25"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            WidthRequest="50"
+                            Text="+"
+                            FontSize="25"/>
+                        <Button 
+                            VerticalOptions="Center"
+                            Grid.Column="2"
+                            Command="{Binding TomarFotoCommand}"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource color5}"
+                            CornerRadius="25"
+                            HorizontalOptions="Start"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            Text="&#xf030;"
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            FontSize="22"/>
+                        <Frame
+                            CornerRadius="20"
+                            Grid.Column="1"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="0"
+                            Padding="0"
+                            HeightRequest="120"
+                            WidthRequest="150">
+                            <Image
+                                Source="{Binding FuenteImagen}"
+                                Aspect="AspectFill"/>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1">
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf007;"
+                                Grid.Column="0"/>
+                            <Entry
+                                Text="{Binding Nombre}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf007;"/>
+                            <Entry
+                                Text="{Binding Apellido}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf0e0;"/>
+                            <Entry
+                                IsEnabled="False"
+                                Text="{Binding Email}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf095;"/>
+                            <Entry
+                                Text="{Binding Telefono}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf2c2;"/>
+                            <Entry
+                                Placeholder="Nuemero de Cedula"
+                                MaxLength="10"
+                                Text="{Binding Cedula}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="Transparent"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid
+                            Padding="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf023;"/>
+                            <Button
+                                Command="{Binding CambiarPasswdCommand}"
+                                HeightRequest="50"
+                                Padding="0"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Column="1"
+                                FontSize="14"
+                                BorderWidth="2"
+                                CornerRadius="25"
+                                Margin="10,0,10,0"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                BackgroundColor="{StaticResource color1}"
+                                Text="Cambiar Contraseña"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="2">
+                    <Button
+                        TextColor="White"
+                        Command="{Binding ActualizarUsuarioCommand}"
+                        Text="Actualizar Información"
+                        BackgroundColor="{StaticResource color3}"
+                        HeightRequest="45"
+                        CornerRadius="10"
+                        Margin="10,5,10,5">
+                    </Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

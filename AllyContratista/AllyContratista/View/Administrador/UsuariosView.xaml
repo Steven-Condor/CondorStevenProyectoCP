@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:AllyContratista.Helper"
+             x:Class="AllyContratista.View.Administrador.UsuariosView"
+             x:Name="UsuariosAdmPage"
+             IconImageSource="users.png"
+             Title="Usuarios"
+             IsBusy="{Binding IsRunning}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ColorConverter x:Key="ColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#f1f1f1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    BackgroundColor="{StaticResource color1}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="0">
+                    <SearchBar 
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="#fff"
+                        x:Name="txtSearchBar"
+                        SearchCommand="{Binding BuscarCommand}"
+                        SearchCommandParameter="{Binding Text, Source={x:Reference txtSearchBar}}"/>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1">
+                    <ScrollView
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                        <RefreshView
+                            Command="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRunning}">
+                            <CollectionView
+                                ItemsSource="{Binding ListViewSource}"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Frame
+                                                CornerRadius="5"
+                                                HasShadow="True"
+                                                Padding="0"
+                                                Margin="5,5,5,0">
+                                                <SwipeView>
+                                                    <SwipeView.LeftItems>
+                                                        <SwipeItems Mode="Reveal">
+                                                            <SwipeItem
+                                                                    Command="{Binding BindingContext.ActivarUsuarioCommand, Source={x:Reference UsuariosAdmPage}}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    Text="Acticar"
+                                                                    BackgroundColor="#00C684"/>
+                                                        </SwipeItems>
+                                                    </SwipeView.LeftItems>
+                                                    <SwipeView.RightItems>
+                                                        <SwipeItems Mode="Reveal">
+                                                            <SwipeItem
+                                                                    IsVisible="{Binding Estado}"
+                                                                    Command="{Binding BindingContext.DesactivarUsuarioCommand, Source={x:Reference UsuariosAdmPage}}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    Text="Desacticar"
+                                                                    BackgroundColor="{StaticResource color5}"/>
+                                                        </SwipeItems>
+                                                    </SwipeView.RightItems>
+                                                    <Grid                                                        
+                                                        BackgroundColor="#fff">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="35"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Frame
+                                                            Grid.Column="0"
+                                                            Padding="10"
+                                                            Margin="0"
+                                                            BackgroundColor="{Binding .,Converter={StaticResource ColorConverter},ConverterParameter={x:Reference Name=UsuariosAdmPage}}">
+                                                            <Label
+                                                                TextColor="#fff"
+                                                                Text="&#xf007;"
+                                                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                                                VerticalOptions="CenterAndExpand"
+                                                                HorizontalOptions="CenterAndExpand"/>
+                                                        </Frame>
+                                                        <StackLayout 
+                                                            Grid.Column="1"
+                                                            Padding="10"
+                                                            Margin="0">
+                                                            <Label 
+                                                                FontAttributes="Bold"
+                                                                TextColor="{StaticResource color6}"
+                                                                FontSize="18">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="{Binding Nombre}"/>
+                                                                        <Span Text=" "/>
+                                                                        <Span Text="{Binding Apellido}"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+                                                            <Label 
+                                                            FontAttributes="Italic"
+                                                            Text="{Binding IdUsuario}"/>
+                                                            <Label 
+                                                            Text="{Binding Email}"/>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </SwipeView>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </RefreshView>
+                    </ScrollView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

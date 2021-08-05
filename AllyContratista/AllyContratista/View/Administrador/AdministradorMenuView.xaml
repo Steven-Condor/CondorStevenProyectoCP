@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyContratista.View.Administrador.AdministradorMenuView"
+             Title=" Flyout Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView 
+                  x:Name="MenuItemsListView"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="true"
+                  ItemsSource="{Binding MenuItems}"
+                  SelectedItem="{Binding MyClassItem, Mode=TwoWay}">
+                <ListView.Header>
+                    <StackLayout
+                        Margin="0"
+                        Grid.Row="0"
+                        BackgroundColor="Transparent">
+                        <StackLayout.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#f2cb05" Offset="0"/>
+                                <GradientStop Color="#f5d639" Offset="0.45"/>
+                                <GradientStop Color="#fbf1bc" Offset="0.82"/>
+                                <GradientStop Color="#fefefe" Offset="1"/>
+                            </LinearGradientBrush>
+                        </StackLayout.Background>
+                        <Frame
+                            Margin="10"
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            BackgroundColor="Transparent"
+                            CornerRadius="45"
+                            Padding="5"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand">
+                            <Image Source="logo.png"/>
+                        </Frame>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                              Padding="15,10" 
+                              HorizontalOptions="FillAndExpand" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Aspect="AspectFill"
+                                        Source="{Binding Icon}"
+                                        Grid.Column="0"/>
+                                    <Label 
+                                        Grid.Column="1"
+                                        VerticalOptions="FillAndExpand" 
+                                        VerticalTextAlignment="Center" 
+                                        Text="{Binding Title}" 
+                                        FontSize="17"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

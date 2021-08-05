@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:magic="http://magic.com/schemas/gradients"
+             x:Class="AllyContratista.View.Contratista.Editar.EditarServicioView"
+             Title="Editar Servicio"
+             NavigationPage.HasNavigationBar="False"
+             IsBusy="{Binding IsBusy}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource color1}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Frame
+                    Margin="0"
+                    Padding="0">
+                    <StackLayout>
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Información del servicio"
+                            Margin="10"
+                            FontSize="20"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout
+                    Margin="20,10,20,0">
+                    <Label
+                        FontAttributes="Bold"
+                        Margin="15,0,0,0"
+                        Text="TITULO DEL SERVICIO: "/>
+                    <Frame
+                        BorderColor="Gray"
+                        BackgroundColor="#F2F4F4"
+                        Margin="0"
+                        Padding="0"
+                        CornerRadius="30">
+                        <StackLayout>
+                            <Entry
+                                Text="{Binding TituloServicio}"
+                                Margin="10,0,0,0"
+                                FontSize="18"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Margin="20,10,20,0">
+                    <Label
+                        FontAttributes="Bold"
+                        Margin="15,0,0,0"
+                        Text="DESCRIPCION DEL SERVICIO: "/>
+                    <Frame
+                        BorderColor="Gray"
+                        BackgroundColor="#F2F4F4"
+                        Margin="0"
+                        Padding="0"
+                        CornerRadius="30">
+                        <StackLayout>
+                            <Entry
+                                Text="{Binding Descripcion}"
+                                Margin="10,0,0,0"
+                                FontSize="18"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Margin="20,10,20,0">
+                    <Label
+                        FontAttributes="Bold"
+                        Margin="15,0,0,0"
+                        Text="PRECIO DEL SERVICIO: "/>
+                    <Frame
+                        BorderColor="Gray"
+                        BackgroundColor="#F2F4F4"
+                        Margin="0"
+                        Padding="0"
+                        CornerRadius="30">
+                        <StackLayout>
+                            <Entry
+                                Keyboard="Numeric"
+                                Text="{Binding Precio}"
+                                Margin="10,0,0,0"
+                                Placeholder="0,00"
+                                FontSize="18"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Margin="20,10,20,0">
+                    <Label
+                        FontAttributes="Bold"
+                        Margin="15,0,0,0"
+                        Text="SELECCIONE EL TIPO DE SERVICIO: "/>
+                    <Frame
+                        BorderColor="Gray"
+                        BackgroundColor="#F2F4F4"
+                        Margin="0"
+                        Padding="5,5,5,0"
+                        CornerRadius="30">
+                        <StackLayout>
+                            <Picker 
+                                Title="Tipo de Servicio" 
+                                ItemsSource="{Binding ListaTipoServicios}"
+                                ItemDisplayBinding="{Binding TipoServicio}"
+                                SelectedItem="{Binding SeleccionarTipo}"
+                                Margin="5,0,5,0"
+                                HeightRequest="40"
+                                FontSize="18"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Margin="20,10,20,0">
+                    <ActivityIndicator 
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        Color="{StaticResource color1}"
+                        IsVisible="true"
+                        IsRunning="{Binding IsBusy}"/>
+                </StackLayout>
+
+            </StackLayout>
+            
+            <StackLayout
+                Grid.Row="1">
+                <Frame 
+                    x:Name="btnNuevo"
+                    Padding="0"
+                    Margin="20,0,20,10"
+                    CornerRadius="25"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Padding="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding NuevoServicioCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="#f2cb05" Offset="0"/>
+                                <GradientStop Color="#f2c205" Offset="0.35"/>
+                                <GradientStop Color="#f2b105" Offset="0.70"/>
+                                <GradientStop Color="#f29f05" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </StackLayout.Background>
+                        <Label
+                            HeightRequest="60"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            TextColor="White"
+                            Grid.Row="0"
+                            Text="INGRESAR SERVICIO"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame 
+                    Margin="20,0,20,10"
+                    x:Name="btnActualizar"
+                    Padding="0"
+                    CornerRadius="25"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Padding="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ActualizarServicioCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="#f29f05" Offset="0"/>
+                                <GradientStop Color="#f28a10" Offset="0.45"/>
+                                <GradientStop Color="#f2731c" Offset="0.84"/>
+                                <GradientStop Color="#f25d27" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </StackLayout.Background>
+                            <Label
+                                HeightRequest="60"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                TextColor="White"
+                                Grid.Row="0"
+                                Text="ACTUALIZAR SERVICIO"/>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

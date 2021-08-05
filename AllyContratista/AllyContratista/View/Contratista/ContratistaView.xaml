@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:pages="clr-namespace:AllyContratista.View.Contratista"
+            x:Class="AllyContratista.View.Contratista.ContratistaView"
+            NavigationPage.HasNavigationBar="False">
+    <FlyoutPage.Flyout>
+        <pages:ContratistaViewFlyout x:Name="FlyoutPage" />
+    </FlyoutPage.Flyout>
+</FlyoutPage>

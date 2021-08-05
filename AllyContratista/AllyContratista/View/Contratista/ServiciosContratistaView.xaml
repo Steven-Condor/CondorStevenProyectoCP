@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyContratista.View.Contratista.ServiciosContratistaView"
+             xmlns:local="clr-namespace:AllyContratista.Helper"
+             IconImageSource="gear.png"
+             Title="Mis Servicios"
+             BackgroundColor="#E5E7E9"
+             x:Name="ContratistaViewPage"
+             IsBusy="{Binding IsRefresh}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ColorConverter x:Key="ColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Frame
+                    Padding="0"
+                    BackgroundColor="{StaticResource color1}"
+                    Margin="0,0,0,0">
+                    <StackLayout
+                        Padding="0"
+                        Margin="0,0,10,5"
+                        VerticalOptions="CenterAndExpand">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="45"/>
+                            </Grid.ColumnDefinitions>
+                            <SearchBar 
+                                HorizontalOptions="FillAndExpand"
+                                TextColor="#fff"
+                                PlaceholderColor="#fff"
+                                CancelButtonColor="#fff"
+                                x:Name="txtSearchBar"
+                                SearchCommand="{Binding BuscarCommand}"
+                                SearchCommandParameter="{Binding Text, Source={x:Reference txtSearchBar}}"/>
+                            <Button
+                                CornerRadius="30"
+                                BorderWidth="1"
+                                BorderColor="White"
+                                Padding="0"
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                TextColor="White"
+                                FontSize="18"
+                                Command="{Binding FiltrarCommand}"
+                                Text="&#xf0b0;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout
+                    Grid.Row="0">
+                    <ScrollView>
+                        <StackLayout>
+                            <RefreshView
+                                Command="{Binding RefreshCommand}"
+                                IsRefreshing="{Binding IsRefresh}">
+                                <CollectionView
+                                    ItemsSource="{Binding ListViewSource}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame
+                                                BackgroundColor="Transparent"
+                                                Margin="0"
+                                                Padding="0">
+                                                <StackLayout
+                                                    Margin="0"
+                                                    Padding="10,5,10,5">
+
+                                                    <SwipeView>
+                                                        <SwipeView.RightItems>
+                                                            <SwipeItems Mode="Reveal">
+                                                                <SwipeItem 
+                                                                    IsVisible="{Binding Estado}"
+                                                                    Command="{Binding BindingContext.DesactivarServicioCommand, Source={x:Reference ContratistaViewPage}}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    Text="Desacticar"
+                                                                    BackgroundColor="{StaticResource color1}"/>
+                                                                <SwipeItem
+                                                                    IsVisible="{Binding ItemVisible}"
+                                                                    Command="{Binding BindingContext.ActivarServicioCommand, Source={x:Reference ContratistaViewPage}}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    Text="Activar"
+                                                            BackgroundColor="#28B463"/>
+                                                            </SwipeItems>
+                                                        </SwipeView.RightItems>
+                                                        <SwipeView.LeftItems Mode="Reveal">
+                                                            <SwipeItem
+                                                                Text="Eliminar"
+                                                                BackgroundColor="Red"
+                                                                Command="{Binding BindingContext.EliminarServicioCommand, Source={x:Reference ContratistaViewPage}}" 
+                                                                CommandParameter="{Binding .}"/>
+                                                        </SwipeView.LeftItems>
+                                                        <Frame
+                                                            BackgroundColor="White"
+                                                            CornerRadius="5"
+                                                            Margin="0"
+                                                            Padding="0">
+                                                            <StackLayout
+                                                                    Grid.Column="0"
+                                                                    BackgroundColor="Transparent">
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="15"/>
+                                                                        <ColumnDefinition Width="*"/>
+                                                                        <ColumnDefinition Width="90"/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.GestureRecognizers>
+                                                                        <TapGestureRecognizer 
+                                                                            Command="{Binding BindingContext.FrmActualizarServicioCommand, Source={x:Reference ContratistaViewPage}}"
+                                                                            CommandParameter="{Binding .}"/>
+                                                                    </Grid.GestureRecognizers>
+                                                                    <Frame
+                                                                            HorizontalOptions="FillAndExpand"
+                                                                            VerticalOptions="FillAndExpand"
+                                                                             BackgroundColor="{Binding .,Converter={StaticResource ColorConverter},ConverterParameter={x:Reference Name=ContratistaViewPage}}"
+                                                                            Grid.Column="0">
+                                                                        <StackLayout>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                    <Frame 
+                                                                            Padding="0"
+                                                                            Margin="20,5,0,10"
+                                                                            BackgroundColor="Transparent"
+                                                                            Grid.Column="1">
+                                                                        <StackLayout>
+                                                                            <Label
+                                                                                TextColor="{StaticResource color6}"
+                                                                                FontSize="16"
+                                                                                FontAttributes="Bold"
+                                                                                Text="{Binding TituloServicio}"/>
+                                                                            <Label
+                                                                                Padding="0"
+                                                                                Margin="0"
+                                                                                TextColor="DarkGray"
+                                                                                FontSize="16"
+                                                                                FontAttributes="Italic"
+                                                                                Text="{Binding TipoServicio}"/>
+                                                                            <Label>
+                                                                                <Label.FormattedText>
+                                                                                    <FormattedString>
+                                                                                        <Span 
+                                                                                        Text="Precio Aprox: " 
+                                                                                        TextColor="HotPink" 
+                                                                                        FontAttributes="Bold"/>
+                                                                                        <Span Text="$"/>
+                                                                                        <Span Text="{Binding Precio}"/>
+                                                                                    </FormattedString>
+                                                                                </Label.FormattedText>
+                                                                            </Label>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                    <Frame 
+                                                                            Padding="10"
+                                                                            HorizontalOptions="FillAndExpand"
+                                                                            VerticalOptions="Center"
+                                                                            BackgroundColor="Transparent"
+                                                                            Grid.Column="2">
+                                                                        <StackLayout Padding="10">
+                                                                            <Frame 
+                                                                                x:Name="FrameExtContainer" 
+                                                                                VerticalOptions="FillAndExpand"
+                                                                                Padding="3" 
+                                                                                HasShadow="False" 
+                                                                                HorizontalOptions="FillAndExpand" 
+                                                                                CornerRadius="25" 
+                                                                                    
+                                                                                OutlineColor="{StaticResource color1}" 
+                                                                                BackgroundColor="{StaticResource color1}" >
+                                                                                <Frame 
+                                                                                    x:Name="FrameIntContainer" 
+                                                                                    Padding="5,5,5,5" 
+                                                                                    HasShadow="False" 
+                                                                                    HorizontalOptions="FillAndExpand" 
+                                                                                    VerticalOptions="FillAndExpand"
+                                                                                    CornerRadius="25" 
+                                                                                    OutlineColor="{StaticResource color1}" 
+                                                                                    BackgroundColor="White">
+                                                                                    <StackLayout>
+                                                                                        <Label 
+                                                                                            FontAttributes="Bold"
+                                                                                            FontSize="23"
+                                                                                            TextColor="#F1C40F"
+                                                                                            VerticalOptions="CenterAndExpand"
+                                                                                            HorizontalOptions="CenterAndExpand"
+                                                                                            Text="{Binding Apoyo}"/>
+                                                                                    </StackLayout>
+                                                                                </Frame>
+                                                                            </Frame>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                </Grid>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </SwipeView>
+                                                </StackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </RefreshView>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                <Button 
+                    Grid.Row="0"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Text="+" 
+                    Margin="10"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    BackgroundColor="#F1C40F"
+                    TextColor="White"
+                    Command="{Binding FrmNuevoServicioCommand}"
+                    CornerRadius="25"
+                    VerticalOptions="End"
+                    HorizontalOptions = "End" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

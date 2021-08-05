@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:local="clr-namespace:AllyContratista.View.Contratista"
+            x:Class="AllyContratista.View.Contratista.ContratistaViewDetail"
+            Title="Contratista"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="White" 
+            BarTextColor="DarkGray" >
+    <TabbedPage.Children>
+        <local:ServiciosContratistaView x:Name="serviciosPage"/>
+        <local:AdministrarServiciosView x:Name="serviciosContadorPage"/>
+        <local:AgendaView x:Name="agendaPage"/>
+    </TabbedPage.Children>
+</TabbedPage>
