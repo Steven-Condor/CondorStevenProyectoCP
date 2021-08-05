@@ -1,0 +1,212 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "3.9.0.0",
+        "fileVersion": "3.9.0-6.21160.10 (59eedc33)",
+        "semanticVersion": "3.9.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "CS0618",
+          "level": "warning",
+          "message": "'GoogleApiClient' está obsoleto: 'This class is obsoleted in this android platform'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Activities/GoogleActivity.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 9,
+                  "endLine": 33,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS0618",
+          "level": "warning",
+          "message": "'GoogleApiClient' está obsoleto: 'This class is obsoleted in this android platform'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Activities/GoogleActivity.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 39,
+                  "endLine": 54,
+                  "endColumn": 54
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS0618",
+          "level": "warning",
+          "message": "'GoogleApiClient.Builder' está obsoleto: 'This class is obsoleted in this android platform'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Activities/GoogleActivity.cs",
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 39,
+                  "endLine": 54,
+                  "endColumn": 62
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS0618",
+          "level": "warning",
+          "message": "'Forms.Context' está obsoleto: 'Context is obsolete as of version 2.5. Please use a local context instead.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Service/LoginGoogle.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 47,
+                  "endLine": 33,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "CS0618",
+          "level": "warning",
+          "message": "'Forms.Context' está obsoleto: 'Context is obsolete as of version 2.5. Please use a local context instead.'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Service/LoginGoogle.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 28,
+                  "endLine": 34,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 2
+          }
+        },
+        {
+          "ruleId": "S1450",
+          "level": "warning",
+          "message": "Remove the field 'googleApiClient' and declare it as a local variable in the relevant methods.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Activities/GoogleActivity.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 25,
+                  "endLine": 33,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3445",
+          "level": "warning",
+          "message": "Consider using 'throw;' to preserve the stack trace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/PC-Steven/source/repos/AllyCliente/AllyCliente/AllyCliente.Android/Service/LoginGoogle.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 17,
+                  "endLine": 39,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS0618": {
+          "id": "CS0618",
+          "shortDescription": "El tipo o el miembro están obsoletos",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S1450": {
+          "id": "S1450",
+          "shortDescription": "Private fields only used as local variables in methods should become local variables",
+          "fullDescription": "When the value of a private field is always assigned to in a class' methods before being read, then it is not being used to store class information. Therefore, it should become a local variable in the relevant methods to prevent any misunderstanding.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1450",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope"
+            ]
+          }
+        },
+        "S3445": {
+          "id": "S3445",
+          "shortDescription": "Exceptions should not be explicitly rethrown",
+          "fullDescription": "When rethrowing an exception, you should do it by simply calling throw; and not throw exc;, because the stack trace is reset with the second syntax, making debugging a lot harder.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3445",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyCliente.View.Cliente.LectorQRView"
+             Title="Información de usuario"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+            IsVisible="{Binding IsVisble}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Grid.Row="0">
+                    <StackLayout.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#df0b38" Offset="0"/>
+                            <GradientStop Color="#e5375c" Offset="0.4"/>
+                            <GradientStop Color="#f08ca1" Offset="0.8"/>
+                            <GradientStop Color="#ffe6e6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackLayout.Background>
+                    <Frame
+                        BackgroundColor="Transparent"
+                        Margin="0"
+                        Padding="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="210"/>
+                            </Grid.RowDefinitions>
+                            <Frame
+                                CornerRadius="100"
+                                HorizontalOptions="Center"
+                                VerticalOptions="StartAndExpand"
+                                HeightRequest="110"
+                                WidthRequest="110"
+                                Margin="0,30,0,0"
+                                Padding="0">
+                                <Frame
+                                    BorderColor="{StaticResource color0}"
+                                    HeightRequest="100"
+                                    WidthRequest="100"
+                                    BackgroundColor="AntiqueWhite"
+                                    CornerRadius="100"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="0"
+                                    Padding="0">
+                                    <Image 
+                                        Aspect="AspectFill"
+                                        Margin="0" 
+                                        Source="{Binding UsuarioModelo.Imagen}"/>
+                                </Frame>
+                            </Frame>
+                            
+                            <Frame 
+                                CornerRadius="20"
+                                Grid.Row="1"
+                                Margin="20,5,20,0"
+                                Padding="0">
+
+                                <Grid
+                                    Padding="10"
+                                    Margin="5"
+                                    VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Text="&#xf007;"/>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Text="Contratista: "/>
+                                    <Label
+                                        Grid.Row="0"
+                                        HorizontalOptions="Start"
+                                        Grid.Column="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding UsuarioModelo.Nombre}"/>
+                                                    <Span Text=" "/>
+                                                    <Span Text="{Binding UsuarioModelo.Apellido}"/>
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Text="&#xf2c2;"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        Text="Cedula: "
+                                        Grid.Row="1"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        Text="{Binding UsuarioModelo.Cedula}"
+                                        Grid.Row="1"
+                                        Grid.Column="2" />
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Text="&#xf095;"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        Text="Telefono: "
+                                        Grid.Row="2"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        Text="{Binding UsuarioModelo.Telefono}"
+                                        Grid.Row="2"
+                                        Grid.Column="2" />
+
+                                </Grid>
+
+                            </Frame>
+
+                            <Frame 
+                                CornerRadius="20"
+                                Grid.Row="2"
+                                Margin="20,5,20,0"
+                                Padding="0">
+                                <Grid
+                                    Padding="10"
+                                    Margin="5"
+                                    VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Text="&#xf084;"/>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Text="ID: "/>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding OrdenModel.IdOrden}"
+                                        Grid.Row="0"
+                                        Grid.Column="2" />
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Text="&#xf013;"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        Text="Servicio: "
+                                        Grid.Row="1"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        Text="{Binding ServiciosModelo.TituloServicio}"
+                                        Grid.Row="1"
+                                        Grid.Column="2" />
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Text="&#xf274;"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        Text="Fecha de Solicitud: "
+                                        Grid.Row="2"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        VerticalOptions="Center"
+                                        Text="{Binding OrdenModel.Fechas.FechaCreacion}"
+                                        Grid.Row="2"
+                                        Grid.Column="2" />
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Text="&#xf073;"/>
+                                    <Label 
+                                        VerticalOptions="Center"
+                                        FontAttributes="Bold"
+                                        Text="Fecha Agendada: "
+                                        Grid.Row="3"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        VerticalOptions="Center"
+                                        Text="{Binding OrdenModel.Fechas.FechaAgendada}"
+                                        Grid.Row="3"
+                                        Grid.Column="2" />
+
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontFamily="{StaticResource FontAwesomeSolid}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Text="&#xf155;"/>
+                                    <Label 
+                                        FontAttributes="Bold"
+                                        Text="Precio Aproximado: "
+                                        Grid.Row="4"
+                                        Grid.Column="1" />
+                                    <Label 
+                                        VerticalOptions="Center"
+                                        Text="{Binding ServiciosModelo.Precio}"
+                                        Grid.Row="4"
+                                        Grid.Column="2" />
+
+                                </Grid>
+                            </Frame>
+
+                        </Grid>                   
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

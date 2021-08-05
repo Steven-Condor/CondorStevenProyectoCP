@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:magic="http://magic.com/schemas/gradients"
+             x:Class="AllyCliente.View.Cliente.Editar.InformacionOrdenServicioView"
+             IsBusy="{Binding IsBusy}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <StackLayout >
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Offset="0.1" Color="#df0b38"/>
+                        <GradientStop Offset="0.3" Color="#e5375c"/>
+                        <GradientStop Offset="0.6" Color="#f08ca1"/>
+                        <GradientStop Offset="0.9" Color="#ffe6e6"/>
+                        <GradientStop Offset="1.0" Color="#fff"/>
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+                <Grid 
+                    Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                        Grid.Row="0"
+                        BackgroundColor="Transparent"
+                        Margin="0"
+                        Padding="0">
+                        <Label
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Column="0"
+                        TextColor="White"
+                        FontSize="20">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="&#xf007;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="18" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding InformacionUsuario.Nombre}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding InformacionUsuario.Apellido}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Frame>
+                    <Frame
+                        BorderColor="White"
+                        Margin="0"
+                        Grid.Row="1"
+                        Padding="0"
+                        BackgroundColor="White"
+                        CornerRadius="50"
+                        WidthRequest="100"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Image
+                            Aspect="AspectFill"
+                            Margin="-10"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Source="{Binding InformacionUsuario.Imagen}">
+                        </Image>
+
+                    </Frame>
+                    <Frame
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        BackgroundColor="Transparent"
+                        Padding="0"
+                        Margin="20,5,20,0">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+                                    Padding="10"
+                                    CornerRadius="10"
+                                    BackgroundColor="White">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                HorizontalOptions="CenterAndExpand"
+                                                VerticalOptions="CenterAndExpand"
+                                                Grid.Row="0"
+                                                FontSize="25"
+                                                Text="&#xf013;"
+                                                FontFamily="{StaticResource FontAwesomeSolid}"/>
+                                            <Grid
+                                                Grid.Column="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="80"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Grid.Row="0" 
+                                                    Text="Orden N°: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="0" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding IdOrden}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Grid.Row="1" 
+                                                    Text="Categoria: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="1" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding InformacionServicio.TipoServicio}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Grid.Row="2" 
+                                                    Text="Servicio: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    HorizontalTextAlignment="Start"
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="2" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding InformacionServicio.TituloServicio}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Grid.Row="3" 
+                                                    Text="Estado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="3" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding Estado}" 
+                                                    HorizontalOptions="Start" />
+                                                <Label
+                                                    IsVisible="{Binding FechaFinalizacionVisible}"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Grid.Row="4" 
+                                                    Text="Pago: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaFinalizacionVisible}"
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="4" 
+                                                    Grid.Column="1" 
+                                                    HorizontalOptions="Start" >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="$ " />
+                                                            <Span Text="{Binding Pago}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <StackLayout>
+
+                                </StackLayout>
+                                <Frame
+                                    HasShadow="True"
+                                    BackgroundColor="White"
+                                    CornerRadius="10"
+                                    Margin="0,5,0,0"
+                                    Padding="10"
+                                    Grid.Row="1">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                HorizontalOptions="CenterAndExpand"
+                                                VerticalOptions="CenterAndExpand"
+                                                Grid.Row="0"
+                                                FontSize="25"
+                                                Text="&#xf073;"
+                                                FontFamily="{StaticResource FontAwesomeSolid}"/>
+                                            <Grid
+                                                Grid.Column="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="80"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label
+                                                    Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="Solicitado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    Grid.Column="1"
+                                                    Grid.Row="0"
+                                                    Margin="0,0,0,0"
+                                                    Text="{Binding Fechas.FechaCreacion}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaAceptacionVisible}"
+                                                    Grid.Row="1"
+                                                    Grid.Column="0"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="Aceptado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaAceptacionVisible}"
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="1" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding Fechas.FechaAceptacion}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaFinalizacionVisible}"
+                                                    Grid.Row="3"
+                                                    Grid.Column="0"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="Finalizado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaFinalizacionVisible}"
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="3" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding Fechas.FechaFinalizacion}" 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaAgendadaVisible}"
+                                                    VerticalOptions="Center"
+                                                    Grid.Row="2"
+                                                    Grid.Column="0"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="Agendado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaAgendadaVisible}"
+                                                    HorizontalOptions="Start"
+                                                    Grid.Column="1"
+                                                    Grid.Row="2"
+                                                    Margin="0,0,0,0"
+                                                    Text="{Binding Fechas.FechaAgendada}" />
+                                                <Label
+                                                    IsVisible="{Binding FechaCancelacionVisible}"
+                                                    Grid.Row="4"
+                                                    Grid.Column="0"
+                                                    Margin="0,0,0,0"
+                                                    FontAttributes="Bold"
+                                                    Text="Cancelado: " 
+                                                    HorizontalOptions="Start"/>
+                                                <Label
+                                                    IsVisible="{Binding FechaCancelacionVisible}"
+                                                    Margin="0,0,0,0"
+                                                    Grid.Row="4" 
+                                                    Grid.Column="1"
+                                                    Text="{Binding Fechas.FechaCancelacion, Mode=TwoWay}" 
+                                                    HorizontalOptions="Start"/>
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+
+                            </Grid>
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        WidthRequest="200"
+                        Grid.Row="3"
+                        Padding="10"
+                        HorizontalOptions="Center"
+                        CornerRadius="25"
+                        BackgroundColor="#00B060"
+                        Margin="20,10,20,10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AbrirWhatsappCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <Label
+                                FontAttributes="Bold"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="White">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        Text="&#xf232;" 
+                                        FontFamily="{StaticResource FontAwesomeBrands}"/>
+                                    <Span Text="  "/>
+                                    <Span
+                                        FontSize="18"
+                                        Text="{Binding InformacionUsuario.Telefono}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Frame>
+                </Grid>
+
+            </StackLayout>
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                Grid.Row="1">
+
+                <Button 
+                    IsVisible="{Binding BtnCancelar}"
+                    x:Name="btnCancelar"
+                    FontSize="18"
+                    HeightRequest="45"
+                    Grid.Column="1"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding CancelarServicioCommand}"
+                    TextColor="White"
+                    BackgroundColor="#E90F44"
+                    Margin="5,10,5,10"
+                    CornerRadius="30"
+                    Text="Cancelar"/>
+
+                <Button 
+                    IsVisible="{Binding BtnCalificar}"
+                    x:Name="btnCalificar"
+                    FontSize="18"
+                    HeightRequest="45"
+                    Grid.Column="1"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding CalificarServicioCommand}"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource color5}"
+                    Margin="5,10,5,5"
+                    CornerRadius="30"
+                    Text="Calificar"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

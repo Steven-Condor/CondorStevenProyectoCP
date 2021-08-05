@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyCliente.View.Cliente.MenuServicioView"
+             x:Name="TipoServiciosPage"
+             Title="Servicios"
+             IconImageSource="gear.png">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ScrollView>
+                <StackLayout
+                    VerticalOptions="FillAndExpand">
+                    <RefreshView
+                        Command="{Binding RefreshCommand}"
+                        IsRefreshing="{Binding IsRefresh}">
+                        <CollectionView
+                        ItemsSource="{Binding ListViewSource}"
+                        ItemsLayout="VerticalGrid, 2">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame
+                                    BackgroundColor="Transparent"
+                                    Padding="0"
+                                    Margin="0">
+                                        <StackLayout
+                                        Padding="0"
+                                        Margin="10,10,10,10">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer 
+                                                Command="{Binding BindingContext.SeleccionarTipoServicioCommand, Source={x:Reference TipoServiciosPage}}" 
+                                                CommandParameter="{Binding .}"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <Frame
+                                            Padding="0"
+                                            Margin="0"
+                                            CornerRadius="2"
+                                            BackgroundColor="White">
+                                                <Grid Padding="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Frame
+                                                    BackgroundColor="Transparent"
+                                                    BorderColor="White"
+                                                    HorizontalOptions="Center"
+                                                    HeightRequest="80"
+                                                    WidthRequest="80">
+                                                        <Image 
+                                                        Grid.Row="0"
+                                                        Margin="-10"
+                                                           Aspect="AspectFill">
+                                                            <Image.Source>
+                                                                <UriImageSource 
+                                                                    Uri="{Binding Imagen}"
+                                                                    CachingEnabled="false"
+                                                                    CacheValidity="30"/>
+                                                            </Image.Source>
+                                                        </Image>
+                                                    </Frame>
+                                                    <Label 
+                                                    TextColor="Black"
+                                                    HorizontalTextAlignment="Center"
+                                                    Grid.Column="0"
+                                                    Grid.Row="1"
+                                                    Text="{Binding TipoServicio}"
+                                                    FontAttributes="Bold"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyCliente.View.RegistroView"
+             IsBusy="{Binding IsRunning}"
+             Title="Perfil de Usuario">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Margin="5"
+                    Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button 
+                            Grid.Column="0"
+                            Command="{Binding SeleccionarFotoCommand}"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource color1}"
+                            CornerRadius="25"
+                            HorizontalOptions="Center"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            VerticalOptions="Center"
+                            Text="+"
+                            FontSize="25"/>
+                        <Button 
+                            Grid.Column="2"
+                            Command="{Binding TomarFotoCommand}"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource color5}"
+                            CornerRadius="25"
+                            HorizontalOptions="Center"
+                            WidthRequest="50"
+                            VerticalOptions="Center"
+                            HeightRequest="50"
+                            Text="&#xf030;"
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            FontSize="22"/>
+                        <Frame
+                            Grid.Column="1"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="0"
+                            Padding="0"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <Image
+                                Source="{Binding FuenteImagen}"
+                                Aspect="AspectFill"/>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="1">
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,-5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf007;"
+                                Grid.Column="0"/>
+                            <Entry
+                                Placeholder="Nombre: "
+                                Text="{Binding Nombre}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf007;"/>
+                            <Entry
+                                Placeholder="Apellido: "
+                                Text="{Binding Apellido}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf0e0;"/>
+                            <Entry
+                                Keyboard="Email"
+                                Placeholder="Email: "
+                                Text="{Binding Email}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf095;"/>
+                            <Entry
+                                Keyboard="Numeric"
+                                Placeholder="Telefono: "
+                                MaxLength="10"
+                                Text="{Binding Telefono}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf023;"/>
+                            <Entry
+                                Placeholder="Contraseña"
+                                IsPassword="{Binding IsPassword}"
+                                Text="{Binding Passwd}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                            <Label
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                Grid.Column="2"
+                                FontSize="18"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf06e;">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding VerPasswordCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                    <Frame
+                        BorderColor="DarkGray"
+                        HasShadow="False"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        Padding="0"
+                        Margin="15,5,15,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                FontSize="18"
+                                HorizontalOptions="End"
+                                VerticalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf023;"/>
+                            <Entry
+                                Placeholder="Repita su Contraseña"
+                                IsPassword="{Binding IsPassword}"
+                                Text="{Binding RPasswd}"
+                                Grid.Column="1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"/>
+                            <Label
+                                VerticalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                Grid.Column="2"
+                                FontSize="18"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                Text="&#xf06e;">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding VerPasswordCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="2">
+                    <Button
+                        TextColor="White"
+                        Command="{Binding RegistrarseCommand}"
+                        Text="Registrarse"
+                        BackgroundColor="{StaticResource color1}"
+                        HeightRequest="45"
+                        CornerRadius="25"
+                        Margin="10,5,10,5">
+
+                    </Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

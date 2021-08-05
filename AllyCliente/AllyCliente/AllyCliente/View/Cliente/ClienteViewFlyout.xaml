@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllyCliente.View.Cliente.ClienteViewFlyout"
+             Title="Flyout">
+    <StackLayout>
+        <ListView 
+            x:Name="MenuItemsListView"
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Frame
+                    Margin="0"
+                    Padding="20">
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Offset="0.0" Color="#df0b38"/>
+                            <GradientStop Offset="0.5" Color="#e5375c"/>
+                            <GradientStop Offset="0.8" Color="#f08ca1"/>
+                            <GradientStop Offset="0.9" Color="#ffe6e6"/>
+                            <GradientStop Offset="1.0" Color="#fff"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <StackLayout
+                        Margin="0"
+                        Grid.Row="0"
+                        BackgroundColor="Transparent">
+                        <Frame
+                            Margin="10"
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            BackgroundColor="White"
+                            CornerRadius="45"
+                            Padding="5"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand">
+                            <Image Source="logo.png"/>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout 
+                            Padding="15,10" 
+                            HorizontalOptions="FillAndExpand" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    HeightRequest="17"
+                                    Source="{Binding icon}"
+                                    Grid.Column="0"/>
+                                <Label 
+                                    Grid.Column="1"
+                                    VerticalOptions="FillAndExpand" 
+                                    VerticalTextAlignment="Center" 
+                                    Text="{Binding Title}" 
+                                    FontSize="17"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Frame
+            HeightRequest="150"
+            VerticalOptions="EndAndExpand"
+            Margin="0"
+            Padding="20">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="#fff"/>
+                    <GradientStop Offset="0.5" Color="#ffe6e6"/>
+                    <GradientStop Offset="0.7" Color="#f08ca1"/>
+                    <GradientStop Offset="0.8" Color="#e5375c"/>
+                    <GradientStop Offset="1.0" Color="#df0b38"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+    </StackLayout>
+</ContentPage>

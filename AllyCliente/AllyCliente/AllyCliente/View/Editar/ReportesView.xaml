@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="AllyCliente.View.Editar.ReportesView"
+             Title="Reportes de usuario">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                CornerRadius="10"
+                Margin="5"
+                Grid.Row="0"
+                Grid.Column="1"
+                BackgroundColor="{StaticResource color0}"
+                TextColor="White"
+                Text="Generar reporte por mes"
+                Command="{Binding ReporteMensualCommand}"/>
+            <StackLayout
+                IsVisible="{Binding LineVisible}">
+                <forms:ChartView x:Name="ReporteLine" Chart="{Binding LChart}" HeightRequest="150" HorizontalOptions="FillAndExpand"/>
+                <ScrollView>
+                    <CollectionView
+                        ItemsSource="{Binding ListViewSource}">
+                        <CollectionView.Header>
+                            <StackLayout 
+                                Padding="0"
+                                Margin="0">
+                                <Frame
+                                BackgroundColor="Beige"
+                                Margin="20,5,20,5"
+                                Padding="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="80"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label
+                                        FontAttributes="Bold"
+                                            FontSize="18"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Grid.Column="0"
+                                            Text="Año"/>
+                                        <Label 
+                                        FontAttributes="Bold"
+                                            Grid.Column="1" 
+                                            HorizontalOptions="CenterAndExpand"
+                                            FontSize="18"
+                                            Text="Mes"/>
+                                        <Label
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        Text="Cantidad" 
+                                        Grid.Column="2" 
+                                        HorizontalOptions="EndAndExpand"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </CollectionView.Header>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout
+                                    Margin="0"
+                                    Padding="0">
+                                    <Frame
+                                        HasShadow="True"
+                                        Padding="5"
+                                        Margin="20,5,20,5">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="30"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                            HeightRequest="30"
+                                            FontSize="16"
+                                            VerticalTextAlignment="Center"
+                                            VerticalOptions="CenterAndExpand"
+                                            Grid.Column="0"
+                                            Text="{Binding Anio}"/>
+                                            <Label
+                                            HeightRequest="30"
+                                            FontSize="16"
+                                            VerticalTextAlignment="Center"
+                                            VerticalOptions="CenterAndExpand"
+                                            Grid.Column="1" Text="{Binding Mes}"/>
+                                            <Label
+                                            FontSize="16"
+                                            Grid.Column="2"
+                                            Margin="0"
+                                            Padding="0"
+                                            Text="{Binding Contar}">
+                                            </Label>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

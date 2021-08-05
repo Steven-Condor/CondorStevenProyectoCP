@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:lv="clr-namespace:LaavorRatingConception;assembly=RatingConception"
+             x:Class="AllyCliente.View.EvaluacionView"
+             x:Name="EvaluacionPage"
+             Title="Evaluar Servicio"
+             IsBusy="{Binding IsBusy}">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label 
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    Text="Calficación del servicio"
+                    Margin="20"/>
+                <Entry
+                IsVisible="false"
+                IsEnabled="False"
+                x:Name="txtNota"
+                Text="{Binding Nota}"/>
+                <lv:RatingConception
+                Voted="RatingConception_Voted"
+                Margin="20"
+                ItemsNumber="5"
+                DrawType="Star"
+                ImageHeight="35"
+                ImageWidth="35"
+                DesignType="Standard"
+                ColorUI="YellowDark">
+                </lv:RatingConception>
+                <Button
+                    IsVisible="{Binding BtnBack}"
+                    Margin="20"
+                    CornerRadius="25"
+                    Padding="10"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    BackgroundColor="{StaticResource color6}"
+                    TextColor="White"
+                    Text="Enviar Calificacion"
+                    Command="{Binding CalificarServicioCommand}" />
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
